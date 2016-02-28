@@ -1,0 +1,207 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>
+Python Tips and Tricks
+</title></head><body>
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #404040 }
+body  { background: #202020; color: #d0d0d0 }
+body .c { color: #999999; font-style: italic } /* Comment */
+body .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+body .g { color: #d0d0d0 } /* Generic */
+body .k { color: #6ab825; font-weight: bold } /* Keyword */
+body .l { color: #d0d0d0 } /* Literal */
+body .n { color: #d0d0d0 } /* Name */
+body .o { color: #d0d0d0 } /* Operator */
+body .x { color: #d0d0d0 } /* Other */
+body .p { color: #d0d0d0 } /* Punctuation */
+body .cm { color: #999999; font-style: italic } /* Comment.Multiline */
+body .cp { color: #cd2828; font-weight: bold } /* Comment.Preproc */
+body .c1 { color: #999999; font-style: italic } /* Comment.Single */
+body .cs { color: #e50808; font-weight: bold; background-color: #520000 } /* Comment.Special */
+body .gd { color: #d22323 } /* Generic.Deleted */
+body .ge { color: #d0d0d0; font-style: italic } /* Generic.Emph */
+body .gr { color: #d22323 } /* Generic.Error */
+body .gh { color: #ffffff; font-weight: bold } /* Generic.Heading */
+body .gi { color: #589819 } /* Generic.Inserted */
+body .go { color: #cccccc } /* Generic.Output */
+body .gp { color: #aaaaaa } /* Generic.Prompt */
+body .gs { color: #d0d0d0; font-weight: bold } /* Generic.Strong */
+body .gu { color: #ffffff; text-decoration: underline } /* Generic.Subheading */
+body .gt { color: #d22323 } /* Generic.Traceback */
+body .kc { color: #6ab825; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #6ab825; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #6ab825; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #6ab825 } /* Keyword.Pseudo */
+body .kr { color: #6ab825; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #6ab825; font-weight: bold } /* Keyword.Type */
+body .ld { color: #d0d0d0 } /* Literal.Date */
+body .m { color: #3677a9 } /* Literal.Number */
+body .s { color: #ed9d13 } /* Literal.String */
+body .na { color: #bbbbbb } /* Name.Attribute */
+body .nb { color: #24909d } /* Name.Builtin */
+body .nc { color: #447fcf; text-decoration: underline } /* Name.Class */
+body .no { color: #40ffff } /* Name.Constant */
+body .nd { color: #ffa500 } /* Name.Decorator */
+body .ni { color: #d0d0d0 } /* Name.Entity */
+body .ne { color: #bbbbbb } /* Name.Exception */
+body .nf { color: #447fcf } /* Name.Function */
+body .nl { color: #d0d0d0 } /* Name.Label */
+body .nn { color: #447fcf; text-decoration: underline } /* Name.Namespace */
+body .nx { color: #d0d0d0 } /* Name.Other */
+body .py { color: #d0d0d0 } /* Name.Property */
+body .nt { color: #6ab825; font-weight: bold } /* Name.Tag */
+body .nv { color: #40ffff } /* Name.Variable */
+body .ow { color: #6ab825; font-weight: bold } /* Operator.Word */
+body .w { color: #666666 } /* Text.Whitespace */
+body .mf { color: #3677a9 } /* Literal.Number.Float */
+body .mh { color: #3677a9 } /* Literal.Number.Hex */
+body .mi { color: #3677a9 } /* Literal.Number.Integer */
+body .mo { color: #3677a9 } /* Literal.Number.Oct */
+body .sb { color: #ed9d13 } /* Literal.String.Backtick */
+body .sc { color: #ed9d13 } /* Literal.String.Char */
+body .sd { color: #ed9d13 } /* Literal.String.Doc */
+body .s2 { color: #ed9d13 } /* Literal.String.Double */
+body .se { color: #ed9d13 } /* Literal.String.Escape */
+body .sh { color: #ed9d13 } /* Literal.String.Heredoc */
+body .si { color: #ed9d13 } /* Literal.String.Interpol */
+body .sx { color: #ffa500 } /* Literal.String.Other */
+body .sr { color: #ed9d13 } /* Literal.String.Regex */
+body .s1 { color: #ed9d13 } /* Literal.String.Single */
+body .ss { color: #ed9d13 } /* Literal.String.Symbol */
+body .bp { color: #24909d } /* Name.Builtin.Pseudo */
+body .vc { color: #40ffff } /* Name.Variable.Class */
+body .vg { color: #40ffff } /* Name.Variable.Global */
+body .vi { color: #40ffff } /* Name.Variable.Instance */
+body .il { color: #3677a9 } /* Literal.Number.Integer.Long */
+
+  </style>
+  
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td colspan="2" rowspan="1" style="vertical-align: top; text-align: center;"><a href="http://jak-o-shadows.users.sourceforge.net">Jak-o-Shadows Web</a><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/blender/blender.html">Blender</a><br>
+      </td>
+      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/electronics/electronics.html">Electronics<br>
+      </a>
+      </td>
+      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/python/python.html">Python</a><br>
+      </td>
+      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/wr/wr.html">Water Rockets</a><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td colspan="3" rowspan="1" style="vertical-align: top;"><br>
+<p>Sometimes when developing games, what you see on the screen happens too fast for you to make sense of it. You can try print statements, or you can take the time to learn an external debugger, which would probably be overkill for what you want it to do <em>right now</em>. One solution i've found when writing games for pygame is to just not let the main <em>while</em> loop finish until you're ready. To that end, I did this:
+</p>
+<p>
+<div class="highlight"><pre>    <span class="n">keepGoing</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">while</span> <span class="n">keepGoing</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                <span class="n">keepGoing</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="n">NextFrame</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">NextFrame</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                    <span class="n">keepGoing</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">KEYDOWN</span><span class="p">:</span>
+                    <span class="n">NextFrame</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div></div></div>
+</p>
+<p>
+This code allows no further input when it is running. Since you're waiting on this to finish, this means that you have literally no input. Also, it isn't possible to go backward. A keypress on any key will let it move onto the next frame. To use, just add the last while loop to the end of your main loop, as shown
+</p>
+
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td colspan="4" rowspan="1" style="vertical-align: top;">Last update was on 2011, 5, 15<br />All
+works licensed under the GPL general public license v3, unless
+otherwise noted. Content may include works based upon public domain
+content.<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/userapps/piwik/jak-o-shadows/" : "http://sourceforge.net/userapps/piwik/jak-o-shadows/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://sourceforge.net/userapps/piwik/jak-o-shadows/piwik.php?idsite=1" style="border:0" alt=""/></p></noscript>
+<!-- End Piwik Tag -->
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+</body></html>

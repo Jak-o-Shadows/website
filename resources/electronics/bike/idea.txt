@@ -1,0 +1,22 @@
+Hello. I'm getting input froma joystick (which is really a LDR, but lets not go there.It suffices to say that it gives a True or False value) I'm working in pygame (for the joystick support). The problem is, the joystick is returning True for too long (The joystick returns true once a revolution (or it's meant to) of a bike tire) However, it is returning true several times a revolution.  The number of times it returns true per revolution changes as the revolution speed changes; At it's top speed, the faster python can process the True signal the better. However, fastest doesn't happpen very often. So, i thought of the idea of only asking the joystick for its information so many times a second. This amount of time should change dynamically depennding on speed. So, i figured get the gap between revolutions with time.time() and somehow increase and decrease it dynamically.
+
+
+
+
+A<sentix> Jak_o_Shadows: You could have a counter inside your input handler that adds up for a specific input type and if it reaches a limit fire an event, if before firing the input changes then the counter is reset to 0
+[19:47] --> b1ackcr0w has joined this channel (n=alistair@212.183.140.51).
+[19:48] <jorrit> Preferably that counter is in milliseconds and you add elapsed frame time to it every frame.
+[19:48] <jorrit> That way you can keep your function called at regular intervals independent from framerate.
+
+
+So it would S
+
+
+
+[19:54] <Yhg1s> Jak_o_Shadows: they either don't care (cheap ones) or they keep track of expected speed and ignore new readings if they arrive much sooner than expected.
+[19:55] <Jak_o_Shadows> oh, i get it
+[19:55] <Jak_o_Shadows> well, the second method would be preferred
+[19:55] <Jak_o_Shadows> witht eh sooner than expected, the expected time would change wouldn't it.
+[19:55] <Yhg1s> so implement it. Calculate the speed from the last two readings, and if it's much faster than expected, ignore the second.
+[19:56] <Yhg1s> Jak_o_Shadows: the expected time is based on the previous (succesful) reading, yes.
+[19:56] <Jak_o_Shadows> So record the time between the last two, and if it's a lot sooner, ignore it, but if its a little sooner, accept it and add the time on.
