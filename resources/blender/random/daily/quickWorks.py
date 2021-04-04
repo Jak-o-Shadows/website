@@ -13,8 +13,8 @@ def checkFile(fName):
         return True
     except IOError:
         return False
-    except Exception, e:
-        print e
+    except Exception as e:
+        print(e)
         return False
 
 
@@ -36,7 +36,7 @@ for i in fnameList:
     filesNeeded.append(i +".blend")
     extension = ".jpg"
     if not checkFile(rootdir +i+extension):
-        print checkFile(rootdir +i+extension)
+        print(checkFile(rootdir +i+extension))
         extension = ".png"
     items[i] = [i + ".blend", i + extension, i + ".txt"]
     filesNeeded.append(i+extension)

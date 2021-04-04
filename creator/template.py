@@ -8,11 +8,7 @@ def main(stuff):
         from Cheetah.Template import Template
         t = Template(website.website, searchList =[stuff])
     except:
-        print stuff["title"]
-        print stuff["style"]
-        print stuff["contents"]
-        print stuff["time"]
-        t = website.nonCheetah(stuff["title"], stuff["style"], stuff["contents"], stuff["time"])
+        t = website.nonCheetah(stuff["title"], stuff["style"], stuff["contents"], stuff["time"], stuff["first"], stuff["second"])
     return t
     
 if __name__ == "__main__" :

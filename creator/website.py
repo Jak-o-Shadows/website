@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+import copy
+
 website = """<!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +26,7 @@ website = """<!DOCTYPE html>
     <header>
       <div class="inner">
         <h1><a href="http://jak-o-shadows.github.io/index.html">Jak_o_Shadows Web</a></h1>
-        <h2>I really need a tagline</h2>
+        <h2>THINK. SOLVE. DESIGN. CREATE. TRANSFORM. ENGINEER.</h2>
         <!--<a href="https://github.com/jasonlong/architect-theme" class="button"><small>View project on</small> GitHub</a>-->
 		  <div id="menu">
 			<ul>
@@ -80,105 +83,18 @@ website = """<!DOCTYPE html>
 """
 
 def nonCheetah(title, style, contents, time, first, second):
-    t = """
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head>
+    t = copy.deepcopy(website)
+    
+    # Replace bits
+    t = t.replace("<title>$title</title>", "<title>%s</title>" % title)
+    
+    t = t.replace("	$style", "	%s" % style)
+    
+    t = t.replace("        $contents", contents)
+    
+    t = t.replace(" $time</p>", " %s</p>" % time)
+    
 
-  
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>{!0}</title></head><body>{!1}
-
-<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
-
-  <tbody>
-    <tr>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td colspan="2" rowspan="1" style="vertical-align: top; text-align: center;"><a href="http://jak-o-shadows.users.sourceforge.net">Jak-o-Shadows Web</a><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/blender/blender.html">Blender</a><br>
-      </td>
-      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/electronics/electronics.html">Electronics<br>
-      </a>
-      </td>
-      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/python/python.html">Python</a><br>
-      </td>
-      <td style="vertical-align: top;"><a href="http://jak-o-shadows.users.sourceforge.net/wr/wr.html">Water Rockets</a><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td colspan="3" rowspan="1" style="vertical-align: top;"><br>{!2}
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;"><br>
-      </td>
-      <div id="first">{4}</div>
-<br />
-<div id="second">{5}</div>
-      <td colspan="4" rowspan="1" style="vertical-align: top;">Last update was on {!3}<br />All
-works licensed under the GPL general public license v3, unless
-otherwise noted. Content may include works based upon public domain
-content.<br>
-      </td>
-      <td style="vertical-align: top;"><br>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<br>
-
-<br>
-
-
-</body></html>
-""".format(title, style, contents, time, first, second)                
     return t
 
 

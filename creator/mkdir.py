@@ -18,17 +18,18 @@ def mkdir(path):
     for i in l:
         try:
             os.mkdir(i)
-            print "folder", i, "has been created"
+            print("folder", i, "has been created")
         except OSError:
             if i == "~/mounts/sfdeveloperweb/electronics/bike":
-                print "GRR"
+                print("GRR")
         
 def makeDir(path):
+    print(path)
     try:
         os.makedirs(path)
     except WindowsError:
         pass
-        #print "folder might already there, ", path
+        #print("folder might already there, ", path
     
     
     
